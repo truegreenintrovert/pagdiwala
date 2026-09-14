@@ -12,7 +12,7 @@
 ### Local Development
 1. Clone the repository:
 ```bash
-git clone https://github.com/141312q/pagdiwala.git
+git clone https://github.com/truegreenintrovert/pagdiwala.git
 cd pagdiwala
 ```
 
@@ -100,7 +100,9 @@ npm run ios
 ## Deployment
 
 ### Web Deployment
-The web app is automatically deployed to GitHub Pages when pushing to the `gh-pages` branch.
+The GitHub Actions workflow builds the app and publishes `dist/apps/web` when
+changes are pushed to the `main` branch. For another static host, upload the
+contents of that same folder to the host's web-root directory.
 
 ### Mobile Deployment
 
