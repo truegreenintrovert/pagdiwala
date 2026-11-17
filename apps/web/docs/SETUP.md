@@ -21,11 +21,17 @@ cd pagdiwala
 npm install
 ```
 
-3. Create `.env` file:
+3. Copy the repository-root `.env.example` to `.env` and set the values from
+   **Supabase Dashboard → Project Settings → API**:
 ```env
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_SUPABASE_URL=https://your-project-ref.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-or-publishable-key
 ```
+
+These `VITE_` values are included in the browser build, so use only the
+Supabase URL and public anon/publishable key. Never put the service-role key
+in this file or in frontend code. Keep `.env` out of Git; it is ignored by
+the repository.
 
 4. Start development server:
 ```bash
@@ -100,9 +106,11 @@ npm run ios
 ## Deployment
 
 ### Web Deployment
-The GitHub Actions workflow builds the app and publishes `dist/apps/web` when
-changes are pushed to the `main` branch. For another static host, upload the
-contents of that same folder to the host's web-root directory.
+The production build needs `VITE_SUPABASE_URL` and
+`VITE_SUPABASE_ANON_KEY` available in the build environment. Configure them
+as build-time environment variables or GitHub Actions secrets for your host.
+The build publishes to `dist/apps/web`; upload that folder's contents to the
+host's web root.
 
 ### Mobile Deployment
 

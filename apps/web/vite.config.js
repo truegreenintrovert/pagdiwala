@@ -6,6 +6,8 @@ import { defineConfig } from 'vite';
 const appDirectory = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  // Keep environment configuration in the repository-root .env file.
+  envDir: path.resolve(appDirectory, '../..'),
   plugins: [react()],
   resolve: {
     extensions: ['.jsx', '.js', '.json'],
